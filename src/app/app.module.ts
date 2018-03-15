@@ -10,6 +10,15 @@ import {ComponentsList} from "./ComponentList";
 import {ThemeModule} from "./magic/src/ui/theme/theme.module";
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {CalendarModule} from 'primeng/components/calendar/calendar';
+// top section Angular Material
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
+
 
 const comps = ComponentsList.getAllComponents();
 
@@ -28,6 +37,14 @@ const comps = ComponentsList.getAllComponents();
       CalendarModule,
 
       ThemeModule,
+     MatToolbarModule,
+     MatDividerModule,
+     MatInputModule,
+     MatSelectModule,
+     MatButtonModule,
+     MatCheckboxModule,
+     MatIconModule,
+
    ],
    exports     : [FormsModule, ReactiveFormsModule, InfiniteScrollModule],
    providers   : [],
