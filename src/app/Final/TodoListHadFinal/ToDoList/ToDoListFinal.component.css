@@ -1,0 +1,27 @@
+/*this is a component css*/
+
+.ToDoListFinalProps {}
+
+.tbTaskListProps {
+    height: 800px;
+    overflow-y: scroll;
+    border: lightskyblue solid 1px;
+}
+
+.tbTaskList_table_rowProps {}
+
+.tbTaskList_table_rowProps:hover {
+    background-color: #EEEEEE;
+}
+
+.selected {
+    background: #F5F5F5;
+}
+
+.ToDoRowProps {}
+
+.DescriptionProps {}
+
+.IsDoneProps {}
+
+.pbDelProps {}

@@ -1,0 +1,25 @@
+/*this is a component css*/
+
+.TodoListHadFinalProps {}
+
+.gAddToToProps {
+    border: lightskyblue solid 1px;
+}
+
+.NewToDoProps {}
+
+.bAddToDoProps {}
+
+.MainCanvasProps {
+    border: lightskyblue solid 1px;
+}
+
+.gTotalsProps {
+    border: lightskyblue solid 1px;
+}
+
+.lTotalProps {}
+
+.TotalDoneProps {}
+
+.TotalRecordsProps {}

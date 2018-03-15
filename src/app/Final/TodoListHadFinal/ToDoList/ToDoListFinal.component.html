@@ -1,0 +1,67 @@
+<form
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        magic="ToDoListFinal"
+        class="ToDoListFinalProps"
+    >
+        <div
+            class="tbTaskList"
+            magic="tbTaskList"
+            class="tbTaskListProps"
+            infinite-scroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="500"
+            (scrolled)="onScrollDown()"
+            [scrollWindow]="false"
+        >
+            <div *ngFor="let row of task.Records.list">
+                <div
+                    *ngIf="mgIfRowCreated(row.rowId)"
+                    id="row"
+                >
+                    <form
+                        [formGroup]="mgGetFormGroupByRow(row.rowId)"
+                        class="tbTaskList_table_rowProps"
+                        [ngClass]="{ 'selected': isRowSelected('tbTaskList', row.rowId)}"
+                    >
+                        <div
+                            magic="ToDoRow"
+                            class="ToDoRowProps"
+                        >
+                            <label
+                                magic="Description"
+                                [rowId]="row.rowId"
+                                class="DescriptionProps hidden_border"
+                            >
+                                {{mgGetValue('Description', row.rowId)}}
+                                </label>
+                                <div
+                                    magic="IsDone"
+                                    [rowId]="row.rowId"
+                                    class="IsDoneProps"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        id="IsDone"
+                                        formControlName="IsDone"
+                                        (change)="mgOnCheckChanged($event,'IsDone', row.rowId)"
+                                    />
+                                    <label for="IsDone">
+        
+    </label>
+            </div>
+            <input
+                type="button"
+                magic="pbDel"
+                [rowId]="row.rowId"
+                class="pbDelProps"
+            />
+            </div>
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            </form>
