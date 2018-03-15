@@ -1,57 +1,47 @@
 <form
-    novalidate
-    [formGroup]="screenFormGroup"
+  novalidate
+  [formGroup]="screenFormGroup"
 >
+  <mat-toolbar color="primary">
+    Todo List Demo
+  </mat-toolbar>
+  <div
+    magic="TodoListHadFinal"
+    class="TodoListHadFinalProps container"
+  >
     <div
-        magic="TodoListHadFinal"
-        class="TodoListHadFinalProps"
+      magic="gAddToTo"
+      class="gAddToToProps"
     >
-        <div
-            magic="gAddToTo"
-            class="gAddToToProps"
-        >
-            <input
-                type="text"
-                formControlName="NewToDo"
-                magic="NewToDo"
-                class="NewToDoProps"
-            />
-            <input
-                type="button"
-                magic="bAddToDo"
-                class="bAddToDoProps"
-                value=AddToDo
-            />
-            </div>
-            <ndc-dynamic
-                magic="MainCanvas"
-                class="MainCanvasProps"
-                [ndcDynamicComponent]="mgGetComp('MainCanvas')"
-                [ndcDynamicInputs]="mgGetParameters('MainCanvas')"
-            >
-                </ndc-dynamic>
-                <div
-                    magic="gTotals"
-                    class="gTotalsProps"
-                >
-                    <label
-                        magic="lTotal"
-                        class="lTotalProps mgFont1"
-                    >
-                        Total
-                        </label>
-                        <label
-                            magic="TotalDone"
-                            class="TotalDoneProps"
-                        >
-                            {{mgGetValue('TotalDone')}}
-                            </label>
-                            <label
-                                magic="TotalRecords"
-                                class="TotalRecordsProps"
-                            >
-                                {{mgGetValue('TotalRecords')}}
-                                </label>
-                                </div>
-                                </div>
-                                </form>
+      <mat-form-field style="width: 400px">
+      <input
+        matInput
+        placeholder="Task description"
+        type="text"
+        formControlName="NewToDo"
+        magic="NewToDo"
+        class="NewToDoProps"
+      />
+      </mat-form-field>
+      <button mat-raised-button color="primary"
+        magic="bAddToDo"
+        class="bAddToDoProps"
+      >
+      AddToDo
+      </button>
+    </div>
+    <ndc-dynamic
+      magic="MainCanvas"
+      class="MainCanvasProps"
+      [ndcDynamicComponent]="mgGetComp('MainCanvas')"
+      [ndcDynamicInputs]="mgGetParameters('MainCanvas')"
+    >
+    </ndc-dynamic>
+    <div
+      magic="gTotals"
+      class="gTotalsProps"
+    >
+      Total : {{mgGetValue('TotalDone')}} / {{mgGetValue('TotalRecords')}}
+    </div>
+  </div>
+</form>
