@@ -3,7 +3,7 @@
 .TodoListHadFinalProps {}
 
 .gAddToToProps {
-    border: lightskyblue solid 1px;
+    /*border: lightskyblue solid 1px;*/
 }
 
 .NewToDoProps {}
@@ -11,11 +11,11 @@
 .bAddToDoProps {}
 
 .MainCanvasProps {
-    border: lightskyblue solid 1px;
+    /*border: lightskyblue solid 1px;*/
 }
 
 .gTotalsProps {
-    border: lightskyblue solid 1px;
+    /*border: lightskyblue solid 1px;*/
 }
 
 .lTotalProps {}

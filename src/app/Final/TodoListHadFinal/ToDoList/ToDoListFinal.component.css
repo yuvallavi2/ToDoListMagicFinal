@@ -5,7 +5,7 @@
 .tbTaskListProps {
     height: 800px;
     overflow-y: scroll;
-    border: lightskyblue solid 1px;
+    /*border: lightskyblue solid 1px;*/
 }
 
 .tbTaskList_table_rowProps {}
