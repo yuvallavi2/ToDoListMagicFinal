@@ -37,12 +37,13 @@
         </td>
         <!--date -->
         <td>
-          <p-calendar
-            formControlName="ToDoDate"
-            magic="ToDoDate"
-            [rowId]="row.rowId"
-            class="ToDoDateProps hidden_border"
-          ></p-calendar>
+          <!--<p-calendar-->
+            <!--formControlName="ToDoDate"-->
+            <!--magic="ToDoDate"-->
+            <!--[rowId]="row.rowId"-->
+            <!--class="ToDoDateProps hidden_border"-->
+          <!--&gt;</p-calendar>-->
+          {{mgGetValue('ToDoDate',[row.rowId]) | date}}
         </td>
         <td>
           <!--ComboBox-->
