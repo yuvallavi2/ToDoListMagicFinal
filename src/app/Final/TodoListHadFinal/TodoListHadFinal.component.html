@@ -3,7 +3,18 @@
   [formGroup]="screenFormGroup"
 >
   <mat-toolbar color="primary">
+    <div class="container">
+    <img src="../../../assets/magic-logo.png" class="logo"/>
     Todo List Demo
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    <div class="d-inline-block progress-cointainer">
+      <todo-list-progress
+        [totalDone]   = "mgGetValue('TotalDone')"
+        [totalRecords]= "mgGetValue('TotalRecords')"
+        class="d-flex justify-content-end"></todo-list-progress>
+    </div>
+    </div>
   </mat-toolbar>
   <div
     magic="TodoListHadFinal"
@@ -14,20 +25,20 @@
       class="gAddToToProps"
     >
       <mat-form-field style="width: 400px">
-      <input
-        matInput
-        placeholder="Task description"
-        type="text"
-        formControlName="NewToDo"
-        magic="NewToDo"
-        class="NewToDoProps"
-      />
+        <input
+          matInput
+          placeholder="Task description"
+          type="text"
+          formControlName="NewToDo"
+          magic="NewToDo"
+          class="NewToDoProps"
+        />
       </mat-form-field>
       <button mat-raised-button color="primary"
-        magic="bAddToDo"
-        class="bAddToDoProps"
+              magic="bAddToDo"
+              class="bAddToDoProps"
       >
-      AddToDo
+        AddToDo
       </button>
     </div>
     <ndc-dynamic

@@ -18,12 +18,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
+import {TodoListProgressComponent} from './Final/TodoListHadFinal/todo-list-progress.component';
 
 
 const comps = ComponentsList.getAllComponents();
 
 @NgModule({
-   declarations: [AppComponent, ...comps],
+   declarations: [
+     AppComponent,
+     TodoListProgressComponent,
+     ...comps
+   ],
    imports     : [
       BrowserModule,
       FormsModule,
