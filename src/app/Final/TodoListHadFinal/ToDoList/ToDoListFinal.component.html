@@ -19,11 +19,12 @@
       <tbody class="tbTaskList_table_rowProps">
       <tr *ngFor="let row of task.Records.list"
           [formGroup]="mgGetFormGroupByRow(row.rowId)"
-          [ngClass]="{ 'selected': isRowSelected('tbTaskList', row.rowId)}"
-          magic="ToDoRow"
           class="ToDoRowProps"
+          magic="ToDoRow"
+          [ngClass]="{ 'selected': isRowSelected('tbTaskList', row.rowId)}"
+          magicMark="magicTableRowContainer"
       >
-        <td>
+        <td magicMark="magicTableRowContainer">
           <label
             magic="Description"
             [rowId]="row.rowId"
@@ -32,17 +33,19 @@
             {{mgGetValue('Description', row.rowId)}}
           </label>
         </td>
-        <td>
-          <mat-checkbox value=""
-                        magic="IsDone"
-                        [rowId]="row.rowId"
-                        class="IsDoneProps"
-                        (change)="mgOnCheckChanged($event,'IsDone', row.rowId)"
-                        formControl="IsDone"
+        <td magicMark="magicTableRowContainer">
+          <mat-checkbox
+            value=""
+            magic="IsDone"
+            [rowId]="row.rowId"
+            class="IsDoneProps"
+            (change)="mgOnCheckChanged($event,'IsDone', row.rowId)"
+            formControlName="IsDone"
           >
           </mat-checkbox>
+        </td>
         <td>
-          <button mat-icon-button color="warn" magic="pbDel" [rowId]="row,rowId">
+          <button mat-icon-button color="warn" magic="pbDel" [rowId]="row.rowId">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
