@@ -11,6 +11,8 @@
       <thead class="thead-dark">
       <tr>
         <td scope="col" style="width: 60%">Descriptions</td>
+        <td scope="col">End D.</td>
+        <td scope="col">Priority</td>
         <td scope="col">Check</td>
         <td scope="col" class="td-actions">Actions</td>
       </tr>
@@ -32,6 +34,34 @@
           >
             {{mgGetValue('Description', row.rowId)}}
           </label>
+        </td>
+        <!--date -->
+        <td>
+          <p-calendar
+            formControlName="ToDoDate"
+            magic="ToDoDate"
+            [rowId]="row.rowId"
+            class="ToDoDateProps hidden_border"
+          ></p-calendar>
+        </td>
+        <td>
+          <!--ComboBox-->
+          <select
+            (change)="mgOnSelectionChanged($event,'cbPriority')"
+            value="mgGetSelectedValue('cbPriority')"
+            magic="cbPriority"
+            [rowId]="row.rowId"
+            class="cbPriorityProps"
+            formControlName="cbPriority"
+          >
+            <option
+              *ngFor="let o of mgGetListboxValues('cbPriority');"
+              [selected]="o.index == mgGetSelectedValue('cbPriority')"
+              [value]="o.index"
+            >
+              {{o.realString}}
+            </option>
+          </select>
         </td>
         <td magicMark="magicTableRowContainer">
           <mat-checkbox
