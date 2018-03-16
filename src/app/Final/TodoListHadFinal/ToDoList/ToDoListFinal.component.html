@@ -1,67 +1,53 @@
 <form
-    novalidate
-    [formGroup]="screenFormGroup"
+  novalidate
+  [formGroup]="screenFormGroup"
 >
-    <div
-        magic="ToDoListFinal"
-        class="ToDoListFinalProps"
-    >
-        <div
-            class="tbTaskList"
-            magic="tbTaskList"
-            class="tbTaskListProps"
-            infinite-scroll
-            [infiniteScrollDistance]="2"
-            [infiniteScrollThrottle]="500"
-            (scrolled)="onScrollDown()"
-            [scrollWindow]="false"
-        >
-            <div *ngFor="let row of task.Records.list">
-                <div
-                    *ngIf="mgIfRowCreated(row.rowId)"
-                    id="row"
-                >
-                    <form
-                        [formGroup]="mgGetFormGroupByRow(row.rowId)"
-                        class="tbTaskList_table_rowProps"
-                        [ngClass]="{ 'selected': isRowSelected('tbTaskList', row.rowId)}"
-                    >
-                        <div
-                            magic="ToDoRow"
-                            class="ToDoRowProps"
-                        >
-                            <label
-                                magic="Description"
-                                [rowId]="row.rowId"
-                                class="DescriptionProps hidden_border"
-                            >
-                                {{mgGetValue('Description', row.rowId)}}
-                                </label>
-                                <div
-                                    magic="IsDone"
-                                    [rowId]="row.rowId"
-                                    class="IsDoneProps"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        id="IsDone"
-                                        formControlName="IsDone"
-                                        (change)="mgOnCheckChanged($event,'IsDone', row.rowId)"
-                                    />
-                                    <label for="IsDone">
-        
-    </label>
-            </div>
-            <input
-                type="button"
-                magic="pbDel"
-                [rowId]="row.rowId"
-                class="pbDelProps"
-            />
-            </div>
-            </form>
-            </div>
-            </div>
-            </div>
-            </div>
-            </form>
+  <div
+    magic="ToDoListFinal"
+    class="ToDoListFinalProps"
+  >
+    <!--adding Table heeader -->
+    <table class="table table-striped table-condensed border table-hover table-sm">
+      <thead class="thead-dark">
+      <tr>
+        <td scope="col" style="width: 60%">Descriptions</td>
+        <td scope="col">Check</td>
+        <td scope="col" class="td-actions">Actions</td>
+      </tr>
+      </thead>
+      <!--changing Magic table to Table Body -->
+      <tbody class="tbTaskList_table_rowProps">
+      <tr *ngFor="let row of task.Records.list"
+          [formGroup]="mgGetFormGroupByRow(row.rowId)"
+          [ngClass]="{ 'selected': isRowSelected('tbTaskList', row.rowId)}"
+          magic="ToDoRow"
+          class="ToDoRowProps"
+      >
+        <td>
+          <label
+            magic="Description"
+            [rowId]="row.rowId"
+            class="DescriptionProps hidden_border"
+          >
+            {{mgGetValue('Description', row.rowId)}}
+          </label>
+        </td>
+        <td>
+          <mat-checkbox value=""
+                        magic="IsDone"
+                        [rowId]="row.rowId"
+                        class="IsDoneProps"
+                        (change)="mgOnCheckChanged($event,'IsDone', row.rowId)"
+                        formControl="IsDone"
+          >
+          </mat-checkbox>
+        <td>
+          <button mat-icon-button color="warn" magic="pbDel" [rowId]="row,rowId">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
